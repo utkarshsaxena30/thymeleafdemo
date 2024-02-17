@@ -13,4 +13,14 @@ public class Controller {
 
         return "helloworld";
     }
+
+    @GetMapping("/show-form")
+    public String showForm() {
+        return "helloworld-form";
+    }
+
+    @GetMapping("/process-form")
+    public String processForm() {
+        return "helloworld";
+    }
 }
