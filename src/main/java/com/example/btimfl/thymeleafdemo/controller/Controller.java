@@ -1,7 +1,9 @@
 package com.example.btimfl.thymeleafdemo.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 
@@ -21,6 +23,12 @@ public class Controller {
 
     @GetMapping("/process-form")
     public String processForm() {
+        return "helloworld";
+    }
+
+    @GetMapping("/process-form-two")
+    public String processFormTwo(@RequestParam String studentName, Model model) {
+        model.addAttribute("message", "YO " + studentName.toUpperCase());
         return "helloworld";
     }
 }
