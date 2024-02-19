@@ -20,6 +20,9 @@
         Favorite Language:
         <input th:field="*{favoriteLanguage}" th:each="tempLanguage: ${languages}" th:value="${tempLanguage}" th:text="${tempLanguage}" type="radio" />
         <br><br>
+        Favorite Operating Systems:
+        <input  th:field="*{favoriteOS}" type="checkbox" th:each="os: ${operatingSystems}" th:value="${os}" th:text="${os}" />
+        <br><br>
         <input type="submit" />
     </form>
 </body>
