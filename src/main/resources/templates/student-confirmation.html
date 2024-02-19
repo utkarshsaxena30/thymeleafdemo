@@ -6,6 +6,7 @@
 </head>
 <body>
 <h3>Student Confirmation</h3>
-    Student is confirmed: <span th:text="${student.firstName} + ' ' + ${student.lastName} + ' from ' + ${student.country}"></span>
+    Student is confirmed:
+    <span th:text="${student.firstName} + ' ' + ${student.lastName} + ' from ' + ${student.country} + ' and loves coding in ' + ${student.favoriteLanguage}"></span>
 </body>
 </html>
