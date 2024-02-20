@@ -1,5 +1,6 @@
 package com.example.btimfl.thymeleafdemo.model;
 
+import com.example.btimfl.thymeleafdemo.annotation.StudentCode;
 import jakarta.validation.constraints.*;
 
 import java.util.List;
@@ -15,13 +16,14 @@ public class Student {
     @Min(value = 0, message = "cannot be less than 0")
     @Max(value = 10, message = "cannot be more than 10")
     private Integer freePasses;
-
     @Pattern(regexp = "^[a-zA-z0-9]{5}", message = "only 5 chars/digits")
     private String postCode;
+    @StudentCode(value = "BT19", message = "must start with BT19")
+    private String studentCode;
 
     public Student() {}
 
-    public Student(String firstName, String lastName, String country, String favoriteLanguage, List<String> favoriteOS, Integer freePasses, String postCode) {
+    public Student(String firstName, String lastName, String country, String favoriteLanguage, List<String> favoriteOS, Integer freePasses, String postCode, String studentCode) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.country = country;
@@ -29,6 +31,7 @@ public class Student {
         this.favoriteOS = favoriteOS;
         this.freePasses = freePasses;
         this.postCode = postCode;
+        this.studentCode = studentCode;
     }
 
     public String getFirstName() {
@@ -85,6 +88,14 @@ public class Student {
 
     public void setPostCode(String postCode) {
         this.postCode = postCode;
+    }
+
+    public String getStudentCode() {
+        return studentCode;
+    }
+
+    public void setStudentCode(String studentCode) {
+        this.studentCode = studentCode;
     }
 
     @Override
