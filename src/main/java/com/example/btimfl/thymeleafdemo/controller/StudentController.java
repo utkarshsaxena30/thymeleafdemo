@@ -43,9 +43,15 @@ public class StudentController {
     }
 
     @PostMapping("/process-student-form")
-    public String processStudentForm(@Valid @ModelAttribute Student student, BindingResult bindingResult) {
+    public String processStudentForm(@Valid @ModelAttribute Student student, BindingResult bindingResult, Model theModel) {
         System.out.println(student.toString());
-        if(bindingResult.hasErrors()) return "student-form";
+        if(bindingResult.hasErrors()) {
+            theModel.addAttribute("countries", countries);
+            theModel.addAttribute("languages", languages);
+            theModel.addAttribute("operatingSystems", operatingSystems);
+
+            return "student-form";
+        }
 
         return "student-confirmation";
     }
