@@ -1,7 +1,6 @@
 package com.example.btimfl.thymeleafdemo.model;
 
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 import java.util.List;
 
@@ -13,12 +12,23 @@ public class Student {
     private String country;
     private String favoriteLanguage;
     private List<String> favoriteOS;
+    @Min(value = 0, message = "cannot be less than 0")
+    @Max(value = 10, message = "cannot be more than 10")
+    private Integer freePasses;
+
+    @Pattern(regexp = "^[a-zA-z0-9]{5}", message = "only 5 chars/digits")
+    private String postCode;
 
     public Student() {}
 
-    public Student(String firstName, String lastName) {
+    public Student(String firstName, String lastName, String country, String favoriteLanguage, List<String> favoriteOS, Integer freePasses, String postCode) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.country = country;
+        this.favoriteLanguage = favoriteLanguage;
+        this.favoriteOS = favoriteOS;
+        this.freePasses = freePasses;
+        this.postCode = postCode;
     }
 
     public String getFirstName() {
@@ -59,6 +69,22 @@ public class Student {
 
     public void setFavoriteOS(List<String> favoriteOS) {
         this.favoriteOS = favoriteOS;
+    }
+
+    public Integer getFreePasses() {
+        return freePasses;
+    }
+
+    public void setFreePasses(Integer freePasses) {
+        this.freePasses = freePasses;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
     }
 
     @Override

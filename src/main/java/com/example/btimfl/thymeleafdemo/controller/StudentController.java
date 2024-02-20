@@ -44,7 +44,6 @@ public class StudentController {
 
     @PostMapping("/process-student-form")
     public String processStudentForm(@Valid @ModelAttribute Student student, BindingResult bindingResult, Model theModel) {
-        System.out.println(student.toString());
         if(bindingResult.hasErrors()) {
             theModel.addAttribute("countries", countries);
             theModel.addAttribute("languages", languages);
